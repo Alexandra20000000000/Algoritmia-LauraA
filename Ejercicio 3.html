@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hallar el Área del Cuadrado</title>
+    <script>
+       
+       //Pedimos el valor de lado del cuadrado.
+        let Lado = parseFloat(prompt("Porfavor, ingrese la longitud del Lado del Cuadrado:"));
+
+        // Validamos que el valor ingresado sea correcto.
+        if (Lado > 0) {
+
+            // Calculamos el Área usando la formula.
+            let Área = Lado * Lado; 
+
+            // Mostramos el resultado.
+            document.write("<h2>Calculo del Área de un cuadrado</h2>");
+            document.write("Lado del cuadrado: " + Lado + "<br>");
+            document.write("El Área del cuadrado es: " + Área.toFixed(2));
+        }
+        else if (Lado === 0 ) {
+            // Si el ususario ingresa 0.
+            document.write("El Lado no puede ser cero. Intentelo nuevamente. ");
+        }
+        else {
+            // Si el usuario ingresa un numero negativo o inválido.
+            document.write("Error: El lado debe ser un número positivo.");
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hallar Perimetro y Area</title>
+    <script>
+        // Hallaremos el perímetro y el área de un cuadrado
+
+        let Altura = parseFloat(prompt("Porfavor, ingrese la Altura del rectángulo"));
+        let Base = parseFloat(prompt("Porfavor, ingrese la Base del rectángulo"));
+
+        // Calculamos perímetro y área
+        let Perímetro = 2 * (Altura + Base);
+        let Area = Base * Altura;
+        
+        // Condiciones para mostar diferentes mensajes
+        if (Base <= 0 && Altura <= 0) {
+            document.write("La Base y la Altura deben ser MAYORES que 0.");
+        } else if (Base === Altura ){
+            document.write("Es un RECTÁNGULO.<br>");
+            document.write("El Perímetro es: " + Perímetro + "<br>" );
+            document.write("El Area es: " + Area ("<br>"));
+        } else {
+            document.write("Es un RECTÁNGULO.<br>");
+            document.write("El Area es: "  +   Area + "<br>"); 
+            document.write("El Perímetro es: "  +  Perímetro + "<br>");
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html> 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular la hipotenusa</title>
+</head>
+<body>
+    <script>
+
+    // Pedimos al usuario los valores de los catetos
+    let cateto1 = parseFloat(prompt("Ingrese la longitud del primer cateto:"));
+    let cateto2 = parseFloat(prompt("Ingrese la longitud del segundo cateto:"));
+
+    // Verificamos que ambos catetos sean números válidos y mayores que 0
+    if (cateto1 > 0 && cateto2 > 0) {
+        // Calculamos la hipotenusa usando el Teorema de Pitágoras
+        let hipotenusa = Math.sqrt((cateto1 * cateto1) + (cateto2 * cateto2));
+
+        // Mostramos el resultado de forma clara
+        document.write("<h2>📐 Cálculo de la Hipotenusa</h2>");
+        document.write("Primer cateto: " + cateto1 + "<br>");
+        document.write("Segundo cateto: " + cateto2 + "<br>");
+        document.write("La hipotenusa es: " + hipotenusa.toFixed(2));
+    } 
+    else if (cateto1 <= 0 && cateto2 <= 0) {
+        document.write("⚠ Error: Ambos catetos deben ser mayores que cero.");
+    } 
+    else if (cateto1 <= 0) {
+        document.write("⚠ Error: El primer cateto debe ser mayor que cero.");
+    } 
+    else {
+        document.write("⚠ Error: El segundo cateto debe ser mayor que cero.");
+    }
+    </script>
+    </body>
+    </html>
