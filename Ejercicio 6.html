@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Pago de Empleados</title>
+</head>
+<body>
+<script>
+    // Pedimos las horas trabajadas y el costo por hora
+    let horas = parseFloat(prompt("Ingrese el número de horas trabajadas:"));
+    let costoHora = parseFloat(prompt("Ingrese el costo por hora:"));
+
+    // Verificamos que los datos sean válidos
+    if (horas > 0 && costoHora > 0) {
+        // Calculamos el pago total
+        let pagoTotal = horas * costoHora;
+
+        // Mostramos el resultado
+        document.write("<h2>Cálculo de Pago</h2>");
+        document.write("Horas trabajadas: " + horas + "<br>");
+        document.write("Costo por hora: $" + costoHora.toFixed(2) + "<br><br>");
+        document.write("El pago total del empleado es: $" + pagoTotal.toFixed(2));
+    }
+    else if (horas === 0 || costoHora === 0) {
+        document.write("⚠️ Las horas trabajadas y el costo por hora no pueden ser cero.");
+    }
+    else {
+        document.write("❌ Error: Ingrese valores positivos y válidos.");
+    }
+</script>
+</body>
+</html>

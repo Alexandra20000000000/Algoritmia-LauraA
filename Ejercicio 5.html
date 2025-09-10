@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Conversión de Velocidad</title>
 </head>
 <body>
-    
+    <script>
+        // Pedimos al usuario la velocidad en km/h
+        let velocidadKm = parseFloat(prompt("Ingrese la velocidad del automóvil en km/h:"));
+
+        // Verificamos que la velocidad sea válida
+        if (velocidadKm > 0) {
+            // Realizamos la conversión a m/s
+            let velocidadMs = velocidadKm * 1000 / 3600;
+
+            // Mostramos el resultado
+            document.write("<h2>Conversión de Velocidad</h2>");
+            document.write("Velocidad en km/h: " + velocidadKm + "<br>");
+            document.write("Velocidad en m/s: " + velocidadMs.toFixed(2));
+        }
+        else if (velocidadKm === 0) {
+            document.write("La velocidad no puede ser cero.");
+        }
+        else {
+            document.write("Error: Ingrese un valor válido y positivo.");
+        }
+    </script>
 </body>
 </html>
