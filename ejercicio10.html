@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nómina Tecnovivir Casas C.A.</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .contenedor {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      width: 400px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+    input {
+      width: 90%;
+      padding: 8px;
+      margin: 6px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #006400;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>💼 Nómina Obreros</h2>
+    <p>Ingrese las horas trabajadas por cada obrero (máx. 50)</p>
+    <input type="number" id="obreros" placeholder="Número de obreros" />
+    <button onclick="generarCampos()">Generar Campos</button>
+    <div id="campos"></div>
+    <button onclick="calcularNomina()">Calcular Nómina</button>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    const valorHora = 10000;
+
+    function generarCampos() {
+      let obreros = parseInt(document.getElementById("obreros").value);
+      let camposDiv = document.getElementById("campos");
+      camposDiv.innerHTML = "";
+
+      if (isNaN(obreros) || obreros <= 0 || obreros > 50) {
+        camposDiv.innerHTML = "<p style='color:red'>Ingrese un número válido de obreros (1-50)</p>";
+        return;
+      }
+
+      for (let i = 1; i <= obreros; i++) {
+        camposDiv.innerHTML += `
+          <input type="number" id="horas${i}" placeholder="Horas obrero ${i}" />
+        `;
+      }
+    }
+
+    function calcularNomina() {
+      let obreros = parseInt(document.getElementById("obreros").value);
+      let totalNomina = 0;
+      let resultado = "<h3>Detalle Nómina</h3><ul>";
+
+      if (isNaN(obreros) || obreros <= 0 || obreros > 50) {
+        document.getElementById("resultado").innerHTML = "<p style='color:red'>Primero ingrese el número de obreros válido.</p>";
+        return;
+      }
+
+      for (let i = 1; i <= obreros; i++) {
+        let horas = parseInt(document.getElementById("horas" + i).value) || 0;
+        let pago = horas * valorHora;
+        totalNomina += pago;
+        resultado += `<li>Obrero ${i}: ${horas} horas → $${pago.toLocaleString()}</li>`;
+      }
+
+      resultado += "</ul><p><strong>Total Nómina: $" + totalNomina.toLocaleString() + "</strong></p>";
+      document.getElementById("resultado").innerHTML = resultado;
+    }
+  </script>
+</body>
+</html>

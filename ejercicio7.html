@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Inversión</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .contenedor {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      width: 300px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+    input {
+      width: 90%;
+      padding: 8px;
+      margin: 6px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #006400;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Calculadora de Inversión</h2>
+    <input type="number" id="capital" placeholder="Cantidad a invertir" />
+    <input type="number" id="interes" placeholder="Interés anual (%)" />
+    <input type="number" id="anios" placeholder="Número de años" />
+    <button onclick="calcular()">Calcular</button>
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    function calcular() {
+      let capital = parseFloat(document.getElementById("capital").value);
+      let interes = parseFloat(document.getElementById("interes").value) / 100;
+      let anios = parseInt(document.getElementById("anios").value);
+
+      if (isNaN(capital) || isNaN(interes) || isNaN(anios)) {
+        document.getElementById("resultado").innerText = "Por favor, completa todos los campos.";
+        return;
+      }
+
+      // Fórmula de interés compuesto: M = C * (1 + i)^t
+      let montoFinal = capital * Math.pow((1 + interes), anios);
+
+      document.getElementById("resultado").innerText =
+        "Capital final: $" + montoFinal.toFixed(2);
+    }
+  </script>
+</body>
+</html>
